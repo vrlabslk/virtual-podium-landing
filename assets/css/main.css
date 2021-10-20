@@ -1,0 +1,10 @@
+html,
+body {
+  display: block;
+  background-color: #000;
+}
+
+.main-logo {
+  margin: 10% auto !important;
+  width: 25%;
+}
