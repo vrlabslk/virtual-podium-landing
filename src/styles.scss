@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
+
+body {
+  display: block;
+  background-color: #0a0000;
+}
+
+.text-hot-pink {
+  color: #f40c6b;
+}
+
+.btn-primary {
+  background-color: #f40c6b;
+  color: #ffffff;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active {
+  background-color: #b30950;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #b30950;
+}
+
+.btn-primary:focus,
+.btn-primary.focus {
+  background-color: #b30950;
+}
