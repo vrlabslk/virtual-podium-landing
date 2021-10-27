@@ -2,7 +2,6 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { DeviceDetectorService } from 'ngx-device-detector';
 import { SharedService } from 'src/app/services/data/shared.service';
 
 @Component({
@@ -25,7 +24,6 @@ export class HomeComponent implements OnInit {
   );
 
   constructor(
-    public deviceDetectorService: DeviceDetectorService,
     private modalService: NgbModal,
     private router: Router,
     private sharedDataSerive: SharedService) {
@@ -54,20 +52,13 @@ export class HomeComponent implements OnInit {
 
   login(): void {
     // validate
-    if (this.name.value !== '' && this.email.value !== '' && this.accessCode.value !== '') {
+    if (this.name.value.trim() !== '' && this.email.value.trim() !== '' && this.accessCode.value.trim() !== '') {
       if (this.accessCode.value.startsWith("ACE")) {
-        // check for device/user-agent
-        const currentDevice = this.deviceDetectorService.getDeviceInfo();
-        let liveUrl = '';
-        liveUrl = (currentDevice.os === "iOS" && currentDevice.browser === "Safari")
-          ? 'googlechromes://virtualpodiumtest.z23.web.core.windows.net/'
-          : 'https://virtualpodiumtest2.z23.web.core.windows.net/'
-
-        this.sharedDataSerive.liveUrl = liveUrl;
+        // this.sharedDataSerive.liveUrl = liveUrl;
+        this.sharedDataSerive.name = this.name.value;
 
         // navigate to tour
-        // this.router.navigate(['tour']);
-        window.location.href = liveUrl;
+        this.router.navigate(['tour']);
       }
     } else {
       this.modalService.open("Please enter credentials", { centered: true, modalDialogClass: "text-center p-2" });
