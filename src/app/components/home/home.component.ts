@@ -52,7 +52,7 @@ export class HomeComponent implements OnInit {
 
   login(): void {
     // validate
-    if (this.name.value.trim() !== '' && this.email.value.trim() !== '' && this.accessCode.value.trim() !== '') {
+    if (this.name.valid && this.email.valid && this.accessCode.valid) {
       if (this.accessCode.value.startsWith("ACE")) {
         // this.sharedDataSerive.liveUrl = liveUrl;
         this.sharedDataSerive.name = this.name.value;
@@ -61,7 +61,7 @@ export class HomeComponent implements OnInit {
         this.router.navigate(['tour']);
       }
     } else {
-      this.modalService.open("Please enter credentials", { centered: true, modalDialogClass: "text-center p-2" });
+      this.modalService.open("Invalid Credentials", { modalDialogClass: "text-center p-2" });
     }
   }
 }
