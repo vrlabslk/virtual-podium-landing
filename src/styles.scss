@@ -8,25 +8,36 @@ body {
   background-color: #000010;
 }
 
+$hot-pink: #f40c6b;
+$hot-pink-dark: darken($hot-pink, 10);
+$hot-pink-light: lighten($hot-pink, 10);
+
 .text-hot-pink {
-  color: #f40c6b;
+  color: $hot-pink;
 }
 
 .btn-primary {
-  background-color: #f40c6b;
+  background-color: $hot-pink;
+  border-color: $hot-pink-light;
   color: #ffffff;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active {
-  background-color: #b30950;
+  background-color: $hot-pink-dark;
+  border-color: $hot-pink-light;
+  box-shadow: 0 0 0 0.2rem #f63d8980;
   color: #ffffff;
 }
 
 .btn-primary:hover {
-  background-color: #b30950;
+  background-color: $hot-pink-dark;
+  border-color: $hot-pink-light;
+  box-shadow: 0 0 0 0.2rem #f63d8980;
 }
 
 .btn-primary:focus,
 .btn-primary.focus {
-  background-color: #b30950;
+  background-color: $hot-pink-dark;
+  border-color: $hot-pink-light;
+  box-shadow: 0 0 0 0.2rem #f63d8980;
 }

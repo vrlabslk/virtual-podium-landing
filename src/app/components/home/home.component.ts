@@ -61,7 +61,7 @@ export class HomeComponent implements OnInit {
         this.router.navigate(['tour']);
       }
     } else {
-      this.modalService.open("Invalid Credentials", { modalDialogClass: "text-center p-2" });
+      this.modalService.open("Invalid Credentials", { modalDialogClass: "text-center p-4" });
     }
   }
 }
