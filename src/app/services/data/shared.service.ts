@@ -4,6 +4,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class SharedService {
+  name!: string;
+  email!: string;
   liveUrl!: string;
 
   constructor() { }

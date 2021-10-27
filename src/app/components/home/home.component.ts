@@ -1,4 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { SharedService } from 'src/app/services/data/shared.service';
@@ -10,9 +12,22 @@ import { SharedService } from 'src/app/services/data/shared.service';
 })
 export class HomeComponent implements OnInit {
 
+  name = new FormControl(null, [Validators.required]);
+  email = new FormControl(null, [Validators.required]);
+  accessCode = new FormControl(null, [Validators.required]);
+
+  loginForm = new FormGroup(
+    {
+      name: this.name,
+      email: this.email,
+      accessCode: this.accessCode
+    }
+  );
+
   constructor(
     public deviceDetectorService: DeviceDetectorService,
     private modalService: NgbModal,
+    private router: Router,
     private sharedDataSerive: SharedService) {
 
   }
@@ -38,24 +53,22 @@ export class HomeComponent implements OnInit {
   }
 
   login(): void {
-    // if os == iOS
-    /// if browser == safari
-    // then, open in chrome
-    // if 15>, 2.0
-    // else 1.0
+    // validate
+    if (this.name.value !== '' && this.email.value !== '' && this.accessCode.value !== '') {
+      // check for device/user-agent
+      const currentDevice = this.deviceDetectorService.getDeviceInfo();
+      let liveUrl = '';
+      liveUrl = (currentDevice.os === "iOS" && currentDevice.browser === "Safari")
+        ? 'googlechromes://virtualpodiumtest.z23.web.core.windows.net/'
+        : 'https://virtualpodiumtest2.z23.web.core.windows.net/'
 
-    // check for device/user-agent
-    const currentDevice = this.deviceDetectorService.getDeviceInfo();
-    let liveUrl = '';
-    console.log(currentDevice);
+      this.sharedDataSerive.liveUrl = liveUrl;
 
-    liveUrl = (currentDevice.os === "iOS" && currentDevice.browser === "Safari")
-      ? 'googlechromes://virtualpodiumtest.z23.web.core.windows.net/'
-      : 'https://virtualpodiumtest2.z23.web.core.windows.net/'
-
-    this.sharedDataSerive.liveUrl = liveUrl;
-
-    // navigate to tour
-    
+      // navigate to tour
+      // this.router.navigate(['tour']);
+      window.location.href = liveUrl;
+    } else {
+      this.modalService.open("Please enter credentials", { centered: true, modalDialogClass: "text-center p-2" });
+    }
   }
 }

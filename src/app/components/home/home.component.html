@@ -1,35 +1,41 @@
 <div class="login-panel">
-  <img
-    class="mb-4 d-block logo-img"
-    src="./../assets/img/ace2021_logo.png"
-    alt=""
-  />
-  <label for="inputName" class="text-hot-pink">Name</label>
-  <input
-    type="text"
-    id="inputName"
-    class="form-control"
-    placeholder="Name"
-    required
-    autofocus
-  />
-  <label for="inputEmail" class="text-hot-pink">Email Address</label>
-  <input
-    type="email"
-    id="inputEmail"
-    class="form-control"
-    placeholder="Email Address"
-    required
-    autofocus
-  />
-  <label for="inputPassword" class="text-hot-pink mt-2">Access Code</label>
-  <input
-    type="password"
-    id="inputPassword"
-    class="form-control"
-    placeholder="Access Code"
-    required
-  />
+  <form [formGroup]="loginForm">
+    <img
+      class="mb-4 d-block logo-img"
+      src="./../assets/img/ace2021_logo.png"
+      alt=""
+    />
+    <label for="inputName" class="text-hot-pink">Name</label>
+    <input
+      type="text"
+      id="inputName"
+      class="form-control"
+      placeholder="Name"
+      formControlName="name"
+      required
+      autofocus
+    />
+    <label for="inputEmail" class="text-hot-pink">Email Address</label>
+    <input
+      type="email"
+      id="inputEmail"
+      class="form-control"
+      placeholder="Email Address"
+      formControlName="email"
+      required
+      autocomplete="off"
+    />
+    <label for="inputPassword" class="text-hot-pink mt-2">Access Code</label>
+    <input
+      type="password"
+      id="inputPassword"
+      class="form-control"
+      placeholder="Access Code"
+      formControlName="accessCode"
+      autocomplete="off"
+      required
+    />
+  </form>
 
   <button
     class="btn btn-lg btn-primary btn-block my-3"
