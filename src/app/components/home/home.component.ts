@@ -55,18 +55,20 @@ export class HomeComponent implements OnInit {
   login(): void {
     // validate
     if (this.name.value !== '' && this.email.value !== '' && this.accessCode.value !== '') {
-      // check for device/user-agent
-      const currentDevice = this.deviceDetectorService.getDeviceInfo();
-      let liveUrl = '';
-      liveUrl = (currentDevice.os === "iOS" && currentDevice.browser === "Safari")
-        ? 'googlechromes://virtualpodiumtest.z23.web.core.windows.net/'
-        : 'https://virtualpodiumtest2.z23.web.core.windows.net/'
+      if (this.accessCode.value.startsWith("ACE")) {
+        // check for device/user-agent
+        const currentDevice = this.deviceDetectorService.getDeviceInfo();
+        let liveUrl = '';
+        liveUrl = (currentDevice.os === "iOS" && currentDevice.browser === "Safari")
+          ? 'googlechromes://virtualpodiumtest.z23.web.core.windows.net/'
+          : 'https://virtualpodiumtest2.z23.web.core.windows.net/'
 
-      this.sharedDataSerive.liveUrl = liveUrl;
+        this.sharedDataSerive.liveUrl = liveUrl;
 
-      // navigate to tour
-      // this.router.navigate(['tour']);
-      window.location.href = liveUrl;
+        // navigate to tour
+        // this.router.navigate(['tour']);
+        window.location.href = liveUrl;
+      }
     } else {
       this.modalService.open("Please enter credentials", { centered: true, modalDialogClass: "text-center p-2" });
     }
