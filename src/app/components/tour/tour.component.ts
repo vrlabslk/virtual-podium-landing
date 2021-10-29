@@ -16,22 +16,30 @@ export class TourComponent implements OnInit {
     private sharedDataSerive: SharedService) { }
 
   ngOnInit(): void {
+
     this.name = this.sharedDataSerive.name;
 
     // check for device/user-agent
     const currentDevice = this.deviceDetectorService.getDeviceInfo();
+    const browserVersion = parseFloat(currentDevice.browser_version);
+
     let liveUrl = 'https://virtualpodiumtest2.z23.web.core.windows.net/';
+
     // liveUrl = (currentDevice.os === "iOS" && currentDevice.browser === "Safari")
     //   ? 'googlechromes://virtualpodiumtest.z23.web.core.windows.net/'
     //   : 'https://virtualpodiumtest2.z23.web.core.windows.net/'
 
     if (currentDevice.os === "iOS" && currentDevice.browser === "Safari") {
-      const browserVersion = parseFloat(currentDevice.browser_version);
       if (browserVersion < 15)
         liveUrl = 'googlechromes://virtualpodiumtest.z23.web.core.windows.net/'
     }
 
     setTimeout(() => {
+      if (currentDevice.os === "iOS" && currentDevice.browser === "Safari") {
+        if (browserVersion < 15)
+          setTimeout(function () { window.location.href = "https://apps.apple.com/us/app/google-chrome/id535886823"; }, 500);
+      }
+
       window.location.href = liveUrl;
     }, 2500);
   }
