@@ -31,31 +31,9 @@ export class HomeComponent implements OnInit {
     private modalService: NgbModal,
     private router: Router,
     private sharedDataSerive: SharedService) {
-
   }
   ngOnInit(): void {
     this.users = data["users"];
-    this.checkOrientation();
-  }
-
-  /**
-   * Check for screen orientation change and show warning
-   */
-  checkOrientation(): void {
-    if (window.orientation === 0 || window.orientation === 180) {
-      let content = "Please change the orientation of your device for a better experience";
-      this.modalService.open(content, { size: 'sm', centered: true, modalDialogClass: "text-center p-2" });
-    } else {
-      this.modalService.dismissAll();
-    }
-  }
-
-  /**
-   * Bind to orientation changes in a mobile device
-   */
-  @HostListener('window:orientationchange')
-  orientationChanged(): void {
-    this.checkOrientation();
   }
 
   /**
