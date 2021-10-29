@@ -32,7 +32,7 @@ export class TourComponent implements OnInit {
     }
 
     setTimeout(() => {
-      // window.location.href = liveUrl;
+      window.location.href = liveUrl;
     }, 2500);
   }
 }

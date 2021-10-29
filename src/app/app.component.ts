@@ -21,7 +21,8 @@ export class AppComponent implements OnInit {
    * Check for screen orientation change and show warning
    */
   checkOrientation(): void {
-    if (window.orientation === 0 || window.orientation === 180) {
+    var mql = window.matchMedia("(orientation: portrait)");
+    if (window.orientation === 0 || window.orientation === 180 || !mql.matches) {
       let content = "Please change the orientation of your device for a better experience";
       this.modalService.open(content, { size: 'sm', centered: true, modalDialogClass: "text-center p-2" });
     } else {
