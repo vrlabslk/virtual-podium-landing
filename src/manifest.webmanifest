@@ -1,8 +1,8 @@
 {
-  "name": "vrl-stall-switcher",
-  "short_name": "vrl-stall-switcher",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "name": "Asian Congress on Endometriosis 2021 | Virtual Podium",
+  "short_name": "ACE 2021",
+  "theme_color": "#b51e5c",
+  "background_color": "#000010",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
