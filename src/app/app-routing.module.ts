@@ -4,7 +4,7 @@ import { HomeComponent } from './components/home/home.component';
 import { TourComponent } from './components/tour/tour.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'tour', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'tour', component: TourComponent },
 ];

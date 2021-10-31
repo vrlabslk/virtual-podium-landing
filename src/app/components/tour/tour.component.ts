@@ -31,13 +31,13 @@ export class TourComponent implements OnInit {
         liveUrl = Constants.CHROME_LINK;
     }
 
-    setTimeout(() => {
-      if (currentDevice.os === "iOS" && currentDevice.browser === "Safari") {
-        if (browserVersion < 15)
-          setTimeout(function () { window.location.href = Constants.APP_STORE_CHROME; }, 500);
-      }
+    // setTimeout(() => {
+    //   if (currentDevice.os === "iOS" && currentDevice.browser === "Safari") {
+    //     if (browserVersion < 15)
+    //       setTimeout(function () { window.location.href = Constants.APP_STORE_CHROME; }, 500);
+    //   }
 
-      window.location.href = liveUrl;
-    }, 2500);
+    //   window.location.href = liveUrl;
+    // }, 2500);
   }
 }
