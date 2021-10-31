@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { Constants } from './shared/constants';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { DeviceDetectorService } from 'ngx-device-detector';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'Asian Congress on Endometriosis';
+  title = Constants.EVENT_TITLE;
 
   ngOnInit(): void {
     this.checkOrientation();
