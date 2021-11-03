@@ -38,7 +38,7 @@ export class TourComponent implements OnInit {
           setTimeout(function () { window.location.href = Constants.APP_STORE_CHROME; }, 500);
       }
 
-      // window.location.href = liveUrl;
+      window.location.href = liveUrl;
     }, 5000);
   }
 }

@@ -8,7 +8,7 @@ body {
   background-color: #000010;
 }
 
-$hot-pink: #f40c6b;
+$hot-pink: #11afed;
 $hot-pink-dark: darken($hot-pink, 10);
 $hot-pink-light: lighten($hot-pink, 10);
 
@@ -25,19 +25,19 @@ $hot-pink-light: lighten($hot-pink, 10);
 .btn-primary:not(:disabled):not(.disabled):active {
   background-color: $hot-pink-dark;
   border-color: $hot-pink-light;
-  box-shadow: 0 0 0 0.2rem #f63d8980;
+  box-shadow: 0 0 0 0.2rem darken($hot-pink, 20);
   color: #ffffff;
 }
 
 .btn-primary:hover {
   background-color: $hot-pink-dark;
   border-color: $hot-pink-light;
-  box-shadow: 0 0 0 0.2rem #f63d8980;
+  box-shadow: 0 0 0 0.2rem darken($hot-pink, 20);
 }
 
 .btn-primary:focus,
 .btn-primary.focus {
   background-color: $hot-pink-dark;
   border-color: $hot-pink-light;
-  box-shadow: 0 0 0 0.2rem #f63d8980;
+  box-shadow: 0 0 0 0.2rem darken($hot-pink, 20);
 }
