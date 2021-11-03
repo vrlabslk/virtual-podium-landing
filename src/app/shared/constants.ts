@@ -10,4 +10,6 @@ export class Constants {
   static CHROME_LINK = `googlechromes://${Constants.EVENT_NAME}wgl1.z23.web.core.windows.net/`;
 
   static APP_STORE_CHROME = 'https://apps.apple.com/us/app/google-chrome/id535886823';
+
+  static PLAY_STORE_CHROME = 'https://play.google.com/store/apps/details?id=com.android.chrome&hl=en&gl=US';
 }

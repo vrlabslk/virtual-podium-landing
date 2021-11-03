@@ -12,12 +12,12 @@ import { Constants } from 'src/app/shared/constants';
 export class TourComponent implements OnInit {
   url = "";
   name = "";
+  storeLink = Constants.PLAY_STORE_CHROME;
 
   constructor(private deviceDetectorService: DeviceDetectorService,
     private sharedDataSerive: SharedService) { }
 
   ngOnInit(): void {
-
     this.name = this.sharedDataSerive.name;
 
     // check for device/user-agent
@@ -27,6 +27,7 @@ export class TourComponent implements OnInit {
     let liveUrl = Constants.WEBGL_2;
 
     if (currentDevice.os === "iOS" && currentDevice.browser === "Safari") {
+      this.storeLink = Constants.APP_STORE_CHROME;
       if (browserVersion < 15)
         liveUrl = Constants.CHROME_LINK;
     }
@@ -37,7 +38,7 @@ export class TourComponent implements OnInit {
           setTimeout(function () { window.location.href = Constants.APP_STORE_CHROME; }, 500);
       }
 
-      window.location.href = liveUrl;
-    }, 2500);
+      // window.location.href = liveUrl;
+    }, 5000);
   }
 }
